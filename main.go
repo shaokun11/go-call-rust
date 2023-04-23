@@ -17,7 +17,10 @@ func EthSayGo() {
 
 //export EthSayGoHello
 func EthSayGoHello() *C.char {
-	return C.CString("Hello from Go! 1 ")
+	var str = C.CString("Hello from Go! 1 ")
+	// 不能释放
+	// defer C.free(unsafe.Pointer(str))
+	return str
 }
 
 func main() {
